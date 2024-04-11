@@ -205,3 +205,27 @@ elementFilm.innerHTML = `
 				</div>
 			</div>
 		</div>`;
+
+
+		const noteForm = document.querySelector('#note-form');
+
+noteForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const messageInput = document.querySelector('#message-input');
+    if (messageInput.value.trim() === '') {
+        messageInput.classList.add('is-invalid');
+    } else {
+        const termsCheckbox = document.querySelector('#terms-checkbox');
+        if (!termsCheckbox.checked) {
+            termsCheckbox.classList.add('is-invalid');
+        } else {
+            const messageContent = messageInput.value.trim();
+            const cardText = document.createElement('p');
+            cardText.classList.add('card-text');
+            cardText.textContent = messageContent;
+
+            noteForm.replaceWith(cardText);
+        }
+    }
+});
