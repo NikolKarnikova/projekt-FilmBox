@@ -106,7 +106,6 @@ const filmy = [
 ];
 const elementSeznam = document.querySelector('#seznam-filmu');
 elementSeznam.innerHTML = '';
-console.log(filmy);
 filmy.forEach((film) => {
   elementSeznam.innerHTML += `<div class="col">
 	<div class="card">
